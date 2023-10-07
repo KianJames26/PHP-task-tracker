@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+:root{
+  --primary-color: #191717;
+  --secondary-color: #F1EFEF;
+  --text-color: #CCC8AA;
+  --placeholder: #7D7C7C;
+  --error-color: #9c2b2e;
+  --error-border: #e84e4f;
+
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: var(--primary-color);
+  font-family: 'Poppins', sans-serif;
+}
+
+h1{
+  color: var(--text-color);
+  font-weight: bold;
+	font-size: 40px;
+	text-align: center;
+  margin-top: 32px;
+}
+
+.form{
+  background-color: var(--secondary-color);
+  border-radius: 14px 14px 14px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+  width: 650px;
+  margin: 48px auto 12px auto;
+}
+.form > input, .form > button, .tasks > .task > button{
+  background: none;
+  outline: none;
+  border: none;
+}
+.form > input{
+  font-size: 26px;
+  color: var(--primary-color);
+  width: 595px;
+  padding: 12px 0px 12px 20px;
+}
+.form > button, .tasks > .task > button{
+  cursor: pointer;
+}
+img{
+  width: 35px;
+	height: 35px;
+}
+.prompt{
+  background-color: var(--error-color);
+  border: var(--error-border) 3px solid;
+  border-radius: 14px 14px 14px 14px;
+  width: 640px;
+  margin: 0 auto;
+  padding: 12px 12px;
+  display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  transition: display 0.5s ease-in-out;
+}
+.prompt > p{
+  color: var(--secondary-color);
+  font-size: 20px;
+  padding: 0 12px;
+  width: 90%;
+}
+.prompt > img{
+  width: 25px;
+  height: 25px;
+  padding-left: 0 12px;
+}
+.tasks{
+  margin-top: 38px;
+}
+.tasks > .task{
+  background-color: var(--secondary-color);
+  border-radius: 14px 14px 14px 14px;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  width: 650px;
+  margin: 10px auto 0 auto;
+  padding: 12px 20px;
+}
+.tasks > .task > input, .tasks > .task-done > input{
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+.tasks > .task > label{
+  font-size: 26px;
+  color: var(--primary-color);
+}
+.tasks > .task > button, .tasks > .task-done > button{
+  opacity: 0;
+  margin-left: auto;
+  transition: opacity 120ms ease-in;
+}
+.tasks > .task > button:hover{
+  opacity: 1;
+}
+
+.tasks > .task-done{
+  background-color: var(--text-color);
+  border-radius: 14px 14px 14px 14px;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  width: 650px;
+  margin: 10px auto 0 auto;
+  padding: 12px 20px;
+  text-decoration: line-through;
+}
+.tasks > .task-done > label{
+  font-size: 26px;
+  color: var(--secondary-color);
+  
+}
+/* .task-tracker {
+	width: 460px;
+	height: 197px;
+	color: #ccc8aa;
+	font-family: "Poppins";
+	font-weight: bold;
+	font-size: 48px;
+	text-align: center;
+}
+.text-input-1 {
+	width: 700px;
+	height: 70px;
+	padding: 4px 8px 4px 32px;
+	background: #f1efef;
+	color: #191717;
+	border-radius: 14px 14px 14px 14px;
+	font-family: "Poppins";
+	font-weight: 400;
+	font-size: 30px;
+	text-align: left;
+}
+.add {
+	width: 40px;
+	height: 40px;
+	background: #000000;
+	border-radius: 44px 44px 44px 44px;
+} */
