@@ -1,7 +1,7 @@
 <?php
   include "../includes/dbConn.php";
 
-  $sql = "SELECT * FROM tasks";
+  $sql = "SELECT * FROM tasks ORDER BY `tasks`.`task_date` DESC";
   $result = mysqli_query($conn, $sql);
   $tasks = [];
 

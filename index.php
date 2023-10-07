@@ -50,7 +50,7 @@
                   `<div class="task task-done" id="enclosure${value['task_id']}">
                     <input type="checkbox" name="task${value['task_id']}" id="task${value['task_id']}" class="task-checkbox" onclick="toggleStatus(${value['task_id']})" checked>
                     <label for="task${value['task_id']}">${value['task_details']}</label>
-                    <button><img src="assets/img/trash.png" alt="Delete"></button>
+                    <button onclick="deleteTask(${value['task_id']})"><img src="assets/img/trash.png" alt="Delete"></button>
                   </div>`
                 )
               }else{
@@ -58,7 +58,7 @@
                   `<div class="task" id="enclosure${value['task_id']}">
                     <input type="checkbox" name="task${value['task_id']}" id="task${value['task_id']}" class="task-checkbox" onclick="toggleStatus(${value['task_id']})">
                     <label for="task${value['task_id']}">${value['task_details']}</label>
-                    <button><img src="assets/img/trash.png" alt="Delete"></button>
+                    <button onclick="deleteTask(${value['task_id']})"><img src="assets/img/trash.png" alt="Delete"></button>
                   </div>`
                 )
               }
@@ -91,6 +91,44 @@
       url: "controller/toggleTaskStatus.php",
       data: { taskId : id, },
       success: function(response) {
+      },
+      error: function(xhr, status, error) {
+        console.error(error);
+      }
+    })
+  }
+  function deleteTask(id){
+    $.ajax({
+      type: "POST",
+      url: "controller/deleteTask.php",
+      data: { taskId : id, },
+      success: function(response) {
+        $(".tasks").empty();
+        $.ajax({
+          type:"GET",
+          url: "controller/fetchTask.php",
+          success: function(response){
+            $.each(response, function(key, value){
+              if(value['isDone'] === '1'){
+                $(".tasks").append(
+                  `<div class="task task-done" id="enclosure${value['task_id']}">
+                    <input type="checkbox" name="task${value['task_id']}" id="task${value['task_id']}" class="task-checkbox" onclick="toggleStatus(${value['task_id']})" checked>
+                    <label for="task${value['task_id']}">${value['task_details']}</label>
+                    <button onclick="deleteTask(${value['task_id']})"><img src="assets/img/trash.png" alt="Delete"></button>
+                  </div>`
+                )
+              }else{
+                $(".tasks").append(
+                  `<div class="task" id="enclosure${value['task_id']}">
+                    <input type="checkbox" name="task${value['task_id']}" id="task${value['task_id']}" class="task-checkbox" onclick="toggleStatus(${value['task_id']})">
+                    <label for="task${value['task_id']}">${value['task_details']}</label>
+                    <button onclick="deleteTask(${value['task_id']})"><img src="assets/img/trash.png" alt="Delete"></button>
+                  </div>`
+                )
+              }
+            })
+          }
+        })
       },
       error: function(xhr, status, error) {
         console.error(error);
