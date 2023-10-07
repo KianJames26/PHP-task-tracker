@@ -3,13 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2023 at 12:57 PM
+-- Generation Time: Oct 07, 2023 at 12:58 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+08:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -26,11 +26,14 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `tasks`
 --
+CREATE DATABASE task_tracker;
+USE task_tracker;
 
 CREATE TABLE `tasks` (
   `task_id` int(11) NOT NULL,
   `task_details` varchar(255) NOT NULL,
-  `task_date` datetime NOT NULL
+  `task_date` datetime NOT NULL,
+  `isDone` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
